@@ -7,16 +7,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Testng {
-	@BeforeTest
-	public void beforetestcase()
-	{
-		System.out.println("before test case");
-	}
-	@AfterTest
-	public void aftertestcase()
-	{
-		System.out.println("after testcase");
-	}
+	
 	@BeforeMethod
 	public void beforemymethod()
 	{
@@ -24,7 +15,6 @@ public class Testng {
 	}
 	
 	@AfterMethod
-	
 	public void aftermymethod()
 	{
 		System.out.println("after method");
@@ -37,6 +27,11 @@ public class Testng {
 	
 	@Test(priority = 2,description = "Test script for logout")
 	public void alogoutTest()
+	{
+		System.out.println("logout");
+	}
+	@Test(priority = 2,description = "Test script for logout")
+	public void sampleTest()
 	{
 		System.out.println("logout");
 	}

@@ -11,11 +11,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class POM_goibibo_test {
 	public static void main(String[] args) throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver=new ChromeDriver();
+		ChromeDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://www.goibibo.com/hotels/");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		POM_Goibibo_class pom=new POM_Goibibo_class(driver);
+		POM_Goibibo_class pom = new POM_Goibibo_class(driver);
 		pom.setSearchbar();
 		Thread.sleep(1000);
 		pom.setClickCity();
@@ -32,9 +32,8 @@ public class POM_goibibo_test {
 		pom.setUpdate();
 		pom.setClickHotel();
 		driver.close();
-		driver.get("https://www.goibibo.com/hotels/");
-		
+//		driver.get("https://www.goibibo.com/hotels/");
+
 	}
-	
 
 }

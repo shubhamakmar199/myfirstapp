@@ -8,6 +8,7 @@
           <include name="TestI"/>
           <include name="TestAfter"/>
           <include name="BeforeTest"/>
+          <include name="testG"/>
         </methods>
       </class> <!-- Com.TestBluestone.POM_Framework_Test -->
     </classes>

@@ -28,7 +28,7 @@ public class FB {
 		select.selectByIndex(4);
 		WebElement month = driver.findElement(By.xpath("//select[@id=\"month\"]"));
 		Select select1=new Select(month);
-		select1.selectByIndex(10);
+		select1.selectByIndex(7);
 		WebElement year = driver.findElement(By.xpath("//select[@id=\"year\"]"));
 		Select select2=new Select(year);
 		select2.selectByIndex(7);
@@ -36,6 +36,7 @@ public class FB {
 		driver.findElement(By.xpath("//label[text()='Male']")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[@name=\"websubmit\"]")).click();
+	
 		Thread.sleep(2000);
 		driver.close();
 		

@@ -8,9 +8,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class AGNhubsignup {
+	WebDriver driver;
 	@Test
 	public void TestA() {
-		WebDriver driver = new ChromeDriver();
+		 driver = new ChromeDriver();
 		driver.get("https://agnhub.com/index.php");
 		driver.manage().window().maximize();
 		driver.findElement(By.xpath("//i[@class=\"fa-sharp fa-solid fa-right-to-bracket\"]")).click();

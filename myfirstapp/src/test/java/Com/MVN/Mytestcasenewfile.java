@@ -18,7 +18,6 @@ public class Mytestcasenewfile
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.ebay.com/");
 		driver.manage().window().maximize();
-		
 		String actualTitle = driver.getTitle();
 		System.out.println(actualTitle);
 		softassert.assertEquals(actualTitle,expextedTitle,"Title Waala failed");

@@ -1,5 +1,6 @@
 package Com.MVN;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -16,7 +17,7 @@ public class Drag_Drop {
 		ChromeDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://jqueryui.com/droppable/");
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		WebElement ele=driver.findElement(By.xpath("//*[@id=\"content\"]/iframe"));
 		driver.switchTo().frame(ele);
 		WebElement drag=driver.findElement(By.id("draggable"));

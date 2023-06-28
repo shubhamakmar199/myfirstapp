@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class POM_Framework_class {
-	private WebDriver driver;
+	 WebDriver driver;
 
 	public POM_Framework_class(WebDriver d) {
 		driver = d;
@@ -32,7 +32,7 @@ public class POM_Framework_class {
 	WebElement RingH;
 	@FindBy(xpath = "//span[text()='Price']")
 	WebElement Price;
-	@FindBy(xpath = "//span[@data-displayname=\"rs 30000 to rs 40000\"]")
+	@FindBy(xpath = "//span[@data-displayname=\"rs 40000 to rs 50000\"]")
 	WebElement PriceValue;
 	@FindBy(xpath = "//h1[text()=' Diamond Rings ']")
 	WebElement Dtext;
@@ -52,8 +52,14 @@ public class POM_Framework_class {
 	WebElement SearchBar;
 	@FindBy(xpath = "//input[@value=\"Search\"]")
 	WebElement S_Icon;
-	@FindBy(xpath = "//a[@title=\"Rings\"]/ancestor::span[@class=\"items\"]")
-	WebElement RingClick;
+	@FindBy(xpath = "//input[@id=\"userPincodeStoreTAH\"]")
+	WebElement Pincode;
+	@FindBy(xpath = "//span[@class=\"filter-item style-fill\"]/ancestor::div[@class=\"middle-filter-blocks tah\"]")
+	WebElement TryAtHome;
+	@FindBy(xpath = "//span[@class=\"filter-item style-fill\"]/ancestor::div[@class=\"middle-filter-blocks store\"]")
+	WebElement DisignInStrore;
+	@FindBy(xpath = "//input[@value=\"Submit\"]")
+	WebElement submitButton;
 
 	// Bluestone05
 	@FindBy(xpath = "//span[@data-p=\"gifts,m\"]")
@@ -62,12 +68,12 @@ public class POM_Framework_class {
 	WebElement Birthday;
 	@FindBy(xpath = "//span[text()='Price']")
 	WebElement HoverPrice;
-	@FindBy(xpath = "//span[@data-displayname=\"rs 40000 to rs 50000\"]")
-	WebElement Value;
+	@FindBy(xpath = "//span[text()=\" 10,000 \"]")
+	WebElement Valuediamond;
 	@FindBy(xpath = "//span[text()='Gender']")
 	WebElement HoverGender;
-	@FindBy(xpath = "//span[text()=' Women ']")
-	WebElement WomenClick;
+	@FindBy(xpath = "//span[text()=' Unisex ']")
+	WebElement Unisex;
 	@FindBy(xpath = "//span[text()='By Occasion']/ancestor::div[@class=\"top-filter-blocks\"]")
 	WebElement byOccation;
 	@FindBy(xpath = "//span[@data-displayname=\"party wear\"]")
@@ -88,6 +94,22 @@ public class POM_Framework_class {
 	WebElement TwentyfourKT;
 	@FindBy(xpath = "//img[@alt=\"1 gram 24 KT Gold Coin\"]")
 	WebElement ViewDetails;
+	@FindBy(xpath = "//span[text()=\"More Filters\"]")
+	WebElement MoreFilterButton;
+	@FindBy(xpath = "//span[@data-displayname=\"tulip\"]")
+	WebElement Tulip;
+	@FindBy(xpath = "//b[@class=\"icon-ion-android-close\"]")
+	WebElement Closedbutton;
+	// Bluestone 07
+	@FindBy(xpath = "//span[@data-p=\"offers,m\"]")
+	WebElement OffersBTN;
+	@FindBy(xpath = "//span[text()='Up To 20% Off Making Charges']")
+	WebElement OfferOne;
+	@FindBy(xpath = "//span[@onclick=\"window.location='/jewellery/offers.html'\"]")
+	WebElement Alloffers;
+	@FindBy(xpath = "//span[text()=\"25% Off your first Gold Mine installment\"]")
+	WebElement percent25;
+
 	// Bluestone 01
 
 	public void RingHover() {
@@ -164,9 +186,18 @@ public class POM_Framework_class {
 	public void search_Icon() {
 		S_Icon.click();
 	}
+	public void pincodetextBox() {
+		Pincode.sendKeys("411058");
+	}
 
-	public void ringClick() {
-		RingClick.click();
+	public void tryAthome() {
+		TryAtHome.click();
+	}
+	public void SubmitB() {
+		submitButton.click();
+	}
+	public void DesignInstors() {
+		DisignInStrore.click();
 	}
 
 	// Bluestone 05
@@ -185,7 +216,7 @@ public class POM_Framework_class {
 	}
 
 	public void FourtykTO50k() {
-		Value.click();
+		Valuediamond.click();
 	}
 
 	public void Hover_Gender() {
@@ -194,7 +225,7 @@ public class POM_Framework_class {
 	}
 
 	public void WoMen_click() {
-		WomenClick.click();
+		Unisex.click();
 	}
 
 	public void by_occasion() {
@@ -205,29 +236,67 @@ public class POM_Framework_class {
 	public void partyWear_Click() {
 		PartyWear.click();
 	}
+
 //blueston 5
 	public void Hover_Coin() {
 		Actions a3 = new Actions(driver);
 		a3.moveToElement(HoverCoins).perform();
 	}
+
 	public void Coins_purity() {
 		CoinsByPurity.click();
 	}
+
 	public void Hover_Weight() {
 		Actions a3 = new Actions(driver);
 		a3.moveToElement(CoinWeight).perform();
 	}
+
 	public void FiveGms() {
 		FiveGrams.click();
 	}
+
 	public void Hover_purity() {
 		Actions a3 = new Actions(driver);
 		a3.moveToElement(HoverPurity).perform();
 	}
+
 	public void twentyfour_KTS() {
 		TwentyfourKT.click();
 	}
+
 	public void Detail_view() {
 		ViewDetails.click();
 	}
+	public void MoreFilterButton() {
+		MoreFilterButton.click();
+		
+	}
+	public void tulipButton() {
+		Tulip.click();
+		
+	}
+	public void closeMorefilter() {
+		Closedbutton.click();
+		
+	}
+	// blueston 6
+	public void offersButton() {
+		Actions a3 = new Actions(driver);
+		a3.moveToElement(OffersBTN).perform();
+	}
+
+	public void offersOne() {
+		OfferOne.click();
+	}
+
+	public void offerAll() {
+		Alloffers.click();
+	}
+
+	public void percentTwentyfive() {
+		percent25.click();
+	}
+	
+
 }

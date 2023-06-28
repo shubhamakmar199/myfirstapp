@@ -12,6 +12,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class POM_Jequery_test {
 	WebDriver driver;
+
 	@BeforeTest
 	public void TestBefore() {
 		WebDriverManager.chromedriver().setup();
@@ -20,12 +21,11 @@ public class POM_Jequery_test {
 	}
 
 	@Test(priority = 2)
-	public void TestA() {
+	public void TestFirst() {
 		POM_Jequery_class jq = new POM_Jequery_class(driver);
 		driver.get("https://jqueryui.com/droppable/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
 		jq.Iframe_handles();
 		jq.Boxdrag();
 
@@ -40,8 +40,7 @@ public class POM_Jequery_test {
 		jq.Iframe_handlesA();
 		jq.Resizable();
 	}
-	
-	
+
 	@AfterTest
 	public void AfterTest() {
 		driver.close();

@@ -3,7 +3,8 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="Com.MVN.POM_Framework_Test"/>
+      <class name="Com.MVN.Testng"/>
+      <class name="Com.MVN.testng1"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

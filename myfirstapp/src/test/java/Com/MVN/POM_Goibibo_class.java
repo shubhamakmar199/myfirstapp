@@ -31,10 +31,6 @@ public class POM_Goibibo_class {
 	@FindBy(xpath = "//div[@class=\"HotelCardstyles__ImageGalleryWrapperDiv-sc-1s80tyk-2 kWNbWZ\"]/div") WebElement ClickHotel;
 
 	
-	public void SearchBox(WebDriver driver) {
-		
-	}
-	
 	public void setSearchbar() {
 		Searchbar.click();
 	}

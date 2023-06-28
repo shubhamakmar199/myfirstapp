@@ -34,7 +34,7 @@ public class Test2 {
 	}
 	
 	
-	@Test(groups={"regression","bvt"})
+	@Test(dependsOnGroups = "bvt")
 	public void aTeste()
 	{
 		System.out.println("Hello test E");

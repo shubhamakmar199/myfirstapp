@@ -18,7 +18,6 @@ public class TestA {
 		
 	}
 	
-	
 	@Test(groups={"regression","bvt"})
 	public void aTest3()
 	{

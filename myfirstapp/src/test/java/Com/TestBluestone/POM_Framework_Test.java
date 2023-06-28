@@ -1,8 +1,14 @@
 package Com.TestBluestone;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +17,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import Com.MVN.POM_Framework_class;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -46,7 +51,7 @@ public class POM_Framework_Test {
 	public void TestD() throws InterruptedException {
 		SoftAssert softassert = new SoftAssert();
 		String expextedText = "Buy 1700+ Diamond Rings Online | BlueStone.com - India's #1 Online Jewellery Brand";
-		String expextedText2 = "DIAMOND RINGS RS 30000 TO 40000";
+		String expextedText2 = "DIAMOND RINGS RS 40000 TO 50000";
 		POM_Framework_class jq = new POM_Framework_class(driver);
 		jq.RingHover();
 		jq.diamondClick();
@@ -55,7 +60,8 @@ public class POM_Framework_Test {
 		softassert.assertEquals(ActualText, expextedText);
 		jq.Hoverprice();
 		jq.Price_filter();
-		String Actualtext2 = driver.findElement(By.xpath("//span[text()='DIAMOND RINGS RS 30000 TO 40000']")).getText();
+		String Actualtext2 = driver.findElement(By.xpath("//span[text()=\"DIAMOND RINGS RS 40000 TO 50000\"]")).getText();
+		System.out.println(Actualtext2);
 		softassert.assertEquals(Actualtext2, expextedText2);
 		softassert.assertAll();
 
@@ -99,64 +105,100 @@ public class POM_Framework_Test {
 	}
 
 	@Test(priority = 2)
-	public void testG() throws InterruptedException {
+	public void testG() throws InterruptedException, IOException {
+		Date cdate = new Date();
+		String myfilename = cdate.toString().replace(" ", "_").replace(":", "-");
 		POM_Framework_class jq = new POM_Framework_class(driver);
 		SoftAssert softassert = new SoftAssert();
-		String expectedText = "EXPLORE DESIGNS BY CATEGORY";
-		String expectedText2 = "RINGS";
+		String ExpectedResult = "SEARCH RESULTS FOR \"NOSE+RING\"";
 		jq.searchBox();
 		jq.search_Icon();
-		String ActualText = driver.findElement(By.xpath("//span[text()='Explore Designs by Category']")).getText();
-		System.out.println(ActualText);
-		softassert.assertEquals(expectedText, ActualText);
-		jq.ringClick();
-		String ActualText2 = driver.findElement(By.xpath("//span[text()='RINGS']")).getText();
-		softassert.assertEquals(expectedText2, ActualText2,"Test case passed");
+		jq.tryAthome();
+		jq.pincodetextBox();
+		jq.SubmitB();
+		jq.DesignInstors();
+		String ActualText = driver.findElement(By.xpath("//h1[@class=\"page-title title-14\"]")).getText();
+		softassert.assertEquals(ActualText, ExpectedResult);
+		File f = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(f, new File("screenshotsCaptured/" + myfilename + ".png"));
 		softassert.assertAll();
+
 	}
 
 	@Test(priority = 6)
-	public void testH() throws InterruptedException {
+	public void testH() throws InterruptedException, IOException {
+		Date cdate = new Date();
+		System.out.println(cdate);
+		String myfileName = cdate.toString().replace(" ", "-").replace(":", "-");
+		System.out.println(myfileName);
 		POM_Framework_class jq = new POM_Framework_class(driver);
 		SoftAssert softassert = new SoftAssert();
-		String ExpectedText = "PARTY WEAR GIFT WOMEN RS 40000 TO 50000 JEWELLERY";
+		String ExpectedText = "GIFT FOR BIRTHDAY UNISEX RS 0 TO 10000 JEWELLERY";
 		jq.hover_Gift();
 		jq.clickBirthday();
 		jq.Hover_price();
+		Thread.sleep(1000);
 		jq.FourtykTO50k();
 		jq.Hover_Gender();
 		jq.WoMen_click();
-		jq.by_occasion();
-		jq.partyWear_Click();
 		String ActualText = driver
-				.findElement(By.xpath("//a[@title=\"Party Wear Gift Women Rs 40000 To 50000 Jewellery\"]")).getText();
+				.findElement(By.xpath("//span[text()=\"GIFT FOR BIRTHDAY UNISEX RS 0 TO 10000 JEWELLERY\"]")).getText();
 		System.out.println(ActualText);
 		softassert.assertEquals(ExpectedText, ActualText);
+		File ssfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(ssfile, new File("screenshotsCaptured/" + myfileName + ".png"));
 		softassert.assertAll();
+
 	}
 
 	@Test(priority = 7)
-	public void TestI() {
+	public void TestI() throws IOException, InterruptedException {
+
 		POM_Framework_class jq = new POM_Framework_class(driver);
 		SoftAssert softassert = new SoftAssert();
-		String expectedText = "1 GRAM 24 KT GOLD COIN";
-		jq.Hover_Coin();
-		jq.Coins_purity();
-		jq.Hover_Weight();
-		jq.FiveGms();
-		jq.Hover_purity();
-		jq.twentyfour_KTS();
-		jq.Detail_view();
-		driver.switchTo().alert();
-		String ActualText = driver.findElement(By.xpath("//span[text()='1 GRAM 24 KT GOLD COIN']")).getText();
-		System.out.println(ActualText);
-		softassert.assertEquals(expectedText, ActualText);
+		
+		String expectedText = "TULIP DIAMOND RINGS";
+		jq.RingHover();
+		jq.diamondClick();
+		jq.MoreFilterButton();
+		jq.closeMorefilter();
+		jq.MoreFilterButton();
+		jq.tulipButton();
+		String actuaText=driver.findElement(By.xpath("//span[text()=\"TULIP DIAMOND RINGS\"]")).getText();
+		System.out.println(actuaText);
+		softassert.assertEquals(expectedText,actuaText);
 		softassert.assertAll();
+	}
+
+	@Test(priority = 0)
+	public void TestJ() throws IOException {
+		Date cdate = new Date();
+		System.out.println(cdate);
+		String myfileName = cdate.toString().replace(" ", "-").replace(":", "-");
+		System.out.println(myfileName);
+		POM_Framework_class jq = new POM_Framework_class(driver);
+		SoftAssert softassert = new SoftAssert();
+		String expectedText = "OFFERS JEWELLERY";
+		jq.offersButton();
+		jq.offerAll();
+		String actualText = driver.findElement(By.xpath("//*[@id=\"breadcrumb\"]/ul/li[3]/a/span")).getText();
+		System.out.println(actualText);
+		softassert.assertEquals(expectedText, actualText);
+		jq.offersButton();
+		File ssfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		System.out.println(myfileName);
+		FileUtils.copyFile(ssfile, new File(".//screenshotsCapture/" + myfileName + ".png"));
+		jq.offersOne();
+		jq.offersButton();
+		jq.percentTwentyfive();
+		softassert.assertAll();
+
 	}
 
 	@AfterMethod
 	public void TestAfter() {
 		driver.close();
+		
 	}
 
 }
