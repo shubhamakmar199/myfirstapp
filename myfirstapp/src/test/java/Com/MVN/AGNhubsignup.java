@@ -11,7 +11,7 @@ public class AGNhubsignup {
 	WebDriver driver;
 	@Test
 	public void TestA() {
-		 driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.get("https://agnhub.com/index.php");
 		driver.manage().window().maximize();
 		driver.findElement(By.xpath("//i[@class=\"fa-sharp fa-solid fa-right-to-bracket\"]")).click();

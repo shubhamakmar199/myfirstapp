@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [BluestoneSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="BluestoneTest(failed)">
     <classes>
       <class name="Com.TestBluestone.POM_Framework_Test">
         <methods>
+          <include name="TestD"/>
           <include name="TestI"/>
+          <include name="testH"/>
+          <include name="TestJ"/>
           <include name="TestAfter"/>
+          <include name="testF"/>
           <include name="BeforeTest"/>
           <include name="testG"/>
+          <include name="TestC"/>
+          <include name="testE"/>
         </methods>
       </class> <!-- Com.TestBluestone.POM_Framework_Test -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- BluestoneTest(failed) -->
+</suite> <!-- Failed suite [BluestoneSuite] -->

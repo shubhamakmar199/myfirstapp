@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
+<suite name="BluestoneSuite">
+  <test name="BluestoneTest">
     <classes>
-      <class name="Com.MVN.Testng"/>
-      <class name="Com.MVN.testng1"/>
+      <class name="Com.TestBluestone.POM_Framework_Test"/>
+      <class name="Com.TestBluestone.Test2"/>
+      <class name="Com.TestBluestone.TestA"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test> <!-- BluestoneTest -->
+</suite> <!-- BluestoneSuite -->

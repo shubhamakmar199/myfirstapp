@@ -5,10 +5,9 @@
     <classes>
       <class name="Com.TestBluestone.POM_Framework_Test">
         <methods>
-          <include name="TestI"/>
+          <include name="testH"/>
           <include name="TestAfter"/>
           <include name="BeforeTest"/>
-          <include name="testG"/>
         </methods>
       </class> <!-- Com.TestBluestone.POM_Framework_Test -->
     </classes>
